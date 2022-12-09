@@ -25,5 +25,22 @@ int main()
     {
         cout << i + 1 << ". " << songs[i] << endl;
     }
+
+    cout << "Play song?\n";
+    char checkcontinue;
+    int currentsong;
+
+    while (true) {
+        cout << "Enter number of song to be played: " << endl;
+        cin >> currentsong;
+        cout << "\nCurrently playing: " << songs[currentsong - 1] << endl;
+
+        cout << "Play another song? (Y/N)" << endl;
+        cin >> checkcontinue;
+        if (checkcontinue == 'N' || checkcontinue == 'n') {
+            break;
+        }
+    } 
+
     return 0;
 }
