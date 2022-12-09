@@ -93,10 +93,17 @@ void playSong() {
         
         cin >> choice;
         char checkcontinue;
-        int currentsong;
+        int currentsong = 0;
 
         switch (choice) {
         case 1:     //Plays next song in order.
+            try {
+                string test = songs.at(currentsong);
+                cout << "\nCurrently playing: " << songs[currentsong - 1] << endl;
+            }
+            catch (exception& e) {
+                cout << "There is no song entry for the number: " << currentsong << endl;
+            }
             break;
         case 2:     //Repeats current song.
             break;
