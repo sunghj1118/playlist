@@ -26,14 +26,21 @@ int main()
         cout << i + 1 << ". " << songs[i] << endl;
     }
 
-    cout << "Play song?\n";
+    cout << "\nPlay song?\n";
     char checkcontinue;
     int currentsong;
 
     while (true) {
-        cout << "Enter number of song to be played: " << endl;
-        cin >> currentsong;
-        cout << "\nCurrently playing: " << songs[currentsong - 1] << endl;
+        cout << "\nEnter number of song to be played: " << endl;
+        
+        try {
+            cin >> currentsong;
+            string test = songs.at(currentsong - 1);
+            cout << "\nCurrently playing: " << songs[currentsong - 1] << endl;
+        }
+        catch (exception &e) {
+            cout << "There is no song entry for the number: " << currentsong << endl;
+        }
 
         cout << "Play another song? (Y/N)" << endl;
         cin >> checkcontinue;
