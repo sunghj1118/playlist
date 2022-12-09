@@ -58,7 +58,7 @@ void addSong() {
 
     do {
         getline(cin, list);
-        if (list == ""){continue;}
+        if (list == "" || list == "done") { continue; }
         else{
             songs.push_back(list);
         }
@@ -108,11 +108,8 @@ void playSong() {
 
 // Displays all the songs in the playlist.
 void displayPlaylist() {
-    cout << "\nYou have " << songs.size() - 1 << " songs in your playlist\n";
-    try {
-        string test = songs.at(0);
-        songs.pop_back();
-        
+    cout << "\nYou have " << songs.size() << " songs in your playlist\n";
+    try {        
         cout << "This is your playlist: \n";
         for (int i = 0; i < songs.size(); i++)
         {
