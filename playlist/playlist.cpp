@@ -7,11 +7,14 @@ using namespace std;
 string list;
 vector<string> songs;
 
+// function declarations
 void displayMenu();
 void addSong();
 void deleteSong();
 void playSong();
 void displayPlaylist();
+
+void displayPlayingMenu();
 
 
 int main()
@@ -82,22 +85,45 @@ void deleteSong() {
 
 // Plays a song in the playlist when selected.
 void playSong() {
-    cout << "\nPlay song?\n";
-    char checkcontinue;
-    int currentsong;
-
+        
     while (true) {
-        cout << "\nEnter number of song to be played: " << endl;
+        displayPlayingMenu();
+        cout << "Enter choice: ";
+        int choice;
+        
+        cin >> choice;
+        char checkcontinue;
+        int currentsong;
 
-        try {
-            cin >> currentsong;
-            string test = songs.at(currentsong - 1);
-            cout << "\nCurrently playing: " << songs[currentsong - 1] << endl;
+        switch (choice) {
+        case 1:     //Plays next song in order.
+            break;
+        case 2:     //Repeats current song.
+            break;
+        case 3:     //Plays random song in list.
+            break;
+        case 4:     //Plays chosen song.
+        {
+            cout << "\nEnter number of song to be played: " << endl;
+            try {
+                cin >> currentsong;
+                string test = songs.at(currentsong - 1);
+                cout << "\nCurrently playing: " << songs[currentsong - 1] << endl;
+            }
+            catch (exception& e) {
+                cout << "There is no song entry for the number: " << currentsong << endl;
+            }
         }
-        catch (exception& e) {
-            cout << "There is no song entry for the number: " << currentsong << endl;
+            break;
+        default:    //catches unavailable inputs.
+            cout << "Returning to menu." << endl;
         }
 
+
+
+
+        
+        //Asks user if they will continue listening.
         cout << "Play another song? (Y/N)" << endl;
         cin >> checkcontinue;
         if (checkcontinue == 'N' || checkcontinue == 'n') {
@@ -119,4 +145,13 @@ void displayPlaylist() {
     catch (exception& e) {
         cout << "Add more songs to display." << endl;
     }
+}
+
+
+void displayPlayingMenu() {
+    cout << "1. Play next song in order.\n";
+    cout << "2. Repeat this song.\n";
+    cout << "3. Shuffle.\n";
+    cout << "4. Choose number of song to be played.\n";
+    cout << "5. Exit.\n";
 }
