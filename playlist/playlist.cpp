@@ -19,7 +19,6 @@ int main()
     int choice;
     char confirm;
 
-
     do
     {
         displayMenu();
@@ -59,7 +58,10 @@ void addSong() {
 
     do {
         getline(cin, list);
-        songs.push_back(list);
+        if (list == ""){continue;}
+        else{
+            songs.push_back(list);
+        }
     } while (list != "done");
 }
 
@@ -96,7 +98,7 @@ void playSong() {
 
 // Displays all the songs in the playlist.
 void displayPlaylist() {
-    cout << "\nYou have " << songs.size() << " songs in your playlist\n";
+    cout << "\nYou have " << songs.size() - 1 << " songs in your playlist\n";
     try {
         string test = songs.at(0);
         songs.pop_back();
