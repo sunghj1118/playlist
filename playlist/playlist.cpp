@@ -67,7 +67,17 @@ void addSong() {
 
 // Deletes a song(s) from the playlist.
 void deleteSong() {
-    cout << "Name songs to delete: ";
+    int erased_song;
+    
+    cout << "Name number of the song to delete: ";
+    do {
+        cin >> erased_song;
+
+        if (list == "") { continue; }
+        else {
+            songs.erase(songs.begin() + erased_song - 1);
+        }
+    } while (list != "done");
 }
 
 // Plays a song in the playlist when selected.
