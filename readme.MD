@@ -1,14 +1,14 @@
-### My first repository is awesome!
+## This is my first repository!
 
-I'm HyunJoon and here it's my first GitHub repository.
-If you see this file on my project, it's because I'm learning Git.
+**I'm HyunJoon and this is my first GitHub repository.
+If you see any files on my project, it's because I'm learning Git.**
+
+I am currently writing a playlist program in C++.
 
 My mood:
-
-> [happy]
+> 😀
 
 My favorite color:
-
-> [blue]
+> 🔵
 
 Thank you so much for reading! ☺
