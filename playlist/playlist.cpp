@@ -85,7 +85,9 @@ void deleteSong() {
 
 // Plays a song in the playlist when selected.
 void playSong() {
-        
+
+    int currentsong = 0;
+
     while (true) {
         displayPlayingMenu();
         cout << "Enter choice: ";
@@ -93,12 +95,19 @@ void playSong() {
         
         cin >> choice;
         char checkcontinue;
-        int currentsong = 0;
 
         switch (choice) {
         case 1:     //Plays next song in order.
             try {
-                string test = songs.at(currentsong);
+                // initialized currentsong if uninitialized.
+                if (currentsong <= 0 || currentsong >= songs.size()) {
+                    currentsong = 1;
+                }
+                else {
+                    currentsong += currentsong;
+                }
+
+                string test = songs.at(currentsong - 1);
                 cout << "\nCurrently playing: " << songs[currentsong - 1] << endl;
             }
             catch (exception& e) {
@@ -106,6 +115,13 @@ void playSong() {
             }
             break;
         case 2:     //Repeats current song.
+            try {
+                string test = songs.at(currentsong - 1);
+                cout << "\nCurrently re-playing: " << songs[currentsong -1] << endl;
+            }
+            catch (exception& e) {
+                cout << "There is no song entry for the number: " << currentsong << endl;
+            }
             break;
         case 3:     //Plays random song in list.
             break;
