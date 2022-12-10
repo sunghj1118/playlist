@@ -99,12 +99,12 @@ void playSong() {
         switch (choice) {
         case 1:     //Plays next song in order.
             try {
-                // initialized currentsong if uninitialized.
+                // Initialized currentsong if uninitialized. The playlist loops to the beginning if it reaches the end.
                 if (currentsong <= 0 || currentsong >= songs.size()) {
                     currentsong = 1;
                 }
                 else {
-                    currentsong += currentsong;
+                    currentsong = currentsong + 1;
                 }
 
                 string test = songs.at(currentsong - 1);
