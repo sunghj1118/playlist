@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <random>
 
 using namespace std;
 
@@ -43,8 +44,6 @@ int main()
     return 0;
 }
 
-
-
 // Displays the main menu.
 void displayMenu() {
     cout << "MENU\n";
@@ -81,6 +80,13 @@ void deleteSong() {
             songs.erase(songs.begin() + erased_song - 1);
         }
     } while (list != "done");
+}
+
+default_random_engine gen;
+
+int random(int low, int high){
+    uniform_int_distribution<> dist(low, high);
+    return dist(gen);
 }
 
 // Plays a song in the playlist when selected.
@@ -124,6 +130,15 @@ void playSong() {
             }
             break;
         case 3:     //Plays random song in list.
+            try {
+                int randomNum = random(1, songs.size());
+                
+                string test = songs.at(randomNum - 1);
+                cout << "\nPlaying random song: " << songs[randomNum - 1] << endl;
+            }
+            catch (exception& e) {
+                cout << "There is no song entry for the number: " << currentsong << endl;
+            }
             break;
         case 4:     //Plays chosen song.
         {
