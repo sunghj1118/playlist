@@ -25,6 +25,8 @@ int main()
 
     do
     {
+        system("cls");
+        
         displayMenu();
         cout << "Enter choice: " << endl;
         cin >> choice;
@@ -95,6 +97,7 @@ void playSong() {
     int currentsong = 0;
 
     while (true) {
+        system("cls");
         displayPlayingMenu();
         cout << "Enter choice: ";
         int choice;
