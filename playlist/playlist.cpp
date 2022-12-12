@@ -145,6 +145,8 @@ void playSong() {
             break;
         case 4:     //Plays chosen song.
         {
+            displayPlaylist();
+            
             cout << "\nEnter number of song to be played: " << endl;
             try {
                 cin >> currentsong;
