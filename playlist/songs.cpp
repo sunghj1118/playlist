@@ -4,56 +4,45 @@
 
 using namespace std;
 
-class Playlist {
-	vector<string> plist;
+class Song {
+	char name[30];
+	string artist;
+	int repetitions;
+
 public:
-	Playlist(vector<string> list) : plist(list) {}
-	Playlist operator += (string s) {
-		plist.push_back(s);
-		return *this;
-	}
-	Playlist operator -= (string s) {
-		int size = plist.size();
-
-
-		int i = 0;
-		for (i; i < size; i++) {
-			if (plist[i] == s) {
-				break;
-			}
-		}
-		plist.erase(plist.begin() + i);
-		return *this;
-	}
-	void Print() {
-		for (int i = 0; i < plist.size(); i++) {
-			cout << plist[i] << " ";
-		}
-	}
+	void getData();
+	void printData();
 };
 
+void Song:: getData() {
+	cout << "Enter song name: ";
+	cin >> name;
+	cout << "Enter artist name: ";
+	cin >> artist;
+	cout << endl;
+	repetitions = 0;
+}
+
+void Song :: printData() {
+	cout << artist << " - " << name << endl;
+}
+
 int main() {
-	int num;
-	cin >> num;
+	Song playist[30];
+	int n;
 
-	vector<string> strlist;
-	string s;
-	while (num--) {
-		cin >> s;
-		strlist.push_back(s);
+	cout << "Enter number of songs: ";
+	cin >> n;
+
+	//Adding songs
+	for (int i = 0; i < n; i++) {
+		playist[i].getData();
 	}
 
-	Playlist plist(strlist);
-
-	string as;
-	while (cin >> as) {
-		if (as[0] == '+') {
-			plist += as.substr(1, string::npos);
-		}
-		else if (as[0] == '-') {
-			plist -= as.substr(1, string::npos);
-		}
+	//Print all songs
+	for (int i = 0; i < n; i++) {
+		playist[i].printData();
 	}
 
-	plist.Print();
+	return 0;
 }

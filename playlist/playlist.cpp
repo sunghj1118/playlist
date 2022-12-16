@@ -17,7 +17,7 @@ void displayPlaylist();
 
 void displayPlayingMenu();
 
-
+/*
 int main()
 {
     int choice;
@@ -45,6 +45,7 @@ int main()
 
     return 0;
 }
+*/
 
 // Displays the main menu.
 void displayMenu() {
